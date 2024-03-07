@@ -15,113 +15,70 @@ final class GildedRose
     }
 
     public function updateQuality(): void
-{
-    foreach ($this->items as $item) {
-        switch ($item->name) {
-            case 'Aged Brie':
-            case 'Backstage passes to a TAFKAL80ETC concert':
-                if ($item->quality < 50) {
-                    $item->quality = $item->quality + 1;
-                    if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
-                        if ($item->sellIn < 11) {
-                            if ($item->quality < 50) {
-                                $item->quality = $item->quality + 1;
-                            }
-                        }
-                        if ($item->sellIn < 6) {
-                            if ($item->quality < 50) {
-                                $item->quality = $item->quality + 1;
-                            }
-                        }
-                    }
-                }
-                break;
-            case 'Sulfuras, Hand of Ragnaros':
-                break;
-            default:
-                if ($item->quality > 0) {
-                    $item->quality = $item->quality - 1;
-                }
-                break;
-        }
-        
-        // Decrease sellIn for all items except Sulfuras
-        if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-            $item->sellIn = $item->sellIn - 1;
-        }
-
-        // Adjust quality for expired items
-        if ($item->sellIn < 0) {
+    {
+        foreach ($this->items as $item) {
             switch ($item->name) {
                 case 'Aged Brie':
                 case 'Backstage passes to a TAFKAL80ETC concert':
-                    if ($item->quality < 50) {
-                        $item->quality = $item->quality + 1;
-                        if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
-                            $item->quality = 0;
-                        }
-                    }
+                    $this->updateSpecialItem($item);
                     break;
                 case 'Sulfuras, Hand of Ragnaros':
-                     break;
+                    // Sulfuras quality and sellIn remain constant, so no action needed
+                    break;
                 default:
-                    if ($item->quality > 0) {
-                        $item->quality = $item->quality - 1;
-                    }
+                    $this->updateNormalItem($item);
+                    break;
             }
-        
-
-            
-        
     
+            // Decrease sellIn for all items except Sulfuras
+            if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+                $item->sellIn--;
+            }
     
- 
-        //     if ($item->name != 'Aged Brie' and $item->name != 'Backstage passes to a TAFKAL80ETC concert') {
-        //         if ($item->quality > 0) {
-        //             if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-        //                 $item->quality = $item->quality - 1;
-        //             }
-                    
-        //         }
-        //     } else {
-        //         if ($item->quality < 50) {
-        //             $item->quality = $item->quality + 1;
-        //             if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
-        //                 if ($item->sellIn < 11) {
-        //                     if ($item->quality < 50) {
-        //                         $item->quality = $item->quality + 1;
-        //                     }
-        //                 }
-        //                 if ($item->sellIn < 6) {
-        //                     if ($item->quality < 50) {
-        //                         $item->quality = $item->quality + 1;
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-
-        //     if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-        //         $item->sellIn = $item->sellIn - 1;
-        //     }
-
-        //     if ($item->sellIn < 0) {
-        //         if ($item->name != 'Aged Brie') {
-        //             if ($item->name != 'Backstage passes to a TAFKAL80ETC concert') {
-        //                 if ($item->quality > 0) {
-        //                     if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-        //                         $item->quality = $item->quality - 1;
-        //                     }
-        //                 }
-        //             } else {
-        //                 $item->quality = $item->quality - $item->quality;
-        //             }
-        //         } else {
-        //             if ($item->quality < 50) {
-        //                 $item->quality = $item->quality + 1;
-        //             }
-        //         }
-        //     }
-        // }}
-    } }
-    }}
+            // Adjust quality for expired items
+            if ($item->sellIn < 0) {
+                $this->updateExpiredItem($item);
+            }
+        }
+    }
+    
+    private function updateSpecialItem(Item $item): void
+    {
+        if ($item->quality < 50) {
+            $item->quality++;
+            if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
+                if ($item->sellIn < 11) {
+                    $item->quality++;
+                }
+                if ($item->sellIn < 6) {
+                    $item->quality++;
+                }
+            }
+        }
+    }
+    
+    private function updateNormalItem(Item $item): void
+    {
+        if ($item->quality > 0) {
+            if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+                $item->quality--;
+            }
+        }
+    }
+    
+    private function updateExpiredItem(Item $item): void
+    {
+        switch ($item->name) {
+            case 'Aged Brie':
+                $this->updateSpecialItem($item);
+                break;
+            case 'Backstage passes to a TAFKAL80ETC concert':
+                $item->quality = 0;
+                break;
+            default:
+                $this->updateNormalItem($item);
+                break;
+        }
+    }
+    
+}
