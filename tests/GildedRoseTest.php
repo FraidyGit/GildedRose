@@ -44,14 +44,9 @@ class GildedRoseTest extends TestCase
     // }
     public function testUpdateQualityForNormalItem(): void
     {
-        // Arrange
         $items = [new Item('Normal Item', 10, 20)];
         $gildedRose = new GildedRose($items);
-
-        // Act
         $gildedRose->updateQuality();
-
-        // Assert
         $this->assertSame('Normal Item', $items[0]->name);
         $this->assertSame(9, $items[0]->sellIn);
         $this->assertSame(19, $items[0]->quality);
