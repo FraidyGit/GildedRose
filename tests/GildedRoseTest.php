@@ -72,5 +72,13 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($items[0]->sellIn, 1);
         $this->assertEquals($items[0]->quality, 1);
     }
+    public function testAgedBrieWhenSellInZero(): void
+    {
+        $items = [new Item('Aged Brie', 0, 2)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals($items[0]->sellIn, -1);
+        $this->assertEquals($items[0]->quality, 4);
+    }
 }
 
