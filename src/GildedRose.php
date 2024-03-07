@@ -7,13 +7,11 @@ namespace GildedRose;
 
 final class GildedRose
 {
-    /**
-     * @param Item[] $items
-     */
+    private array $items;
 
-    public function __construct(
-        private array $items
-    ) {
+    public function __construct(array $items)
+    {
+        $this->items = $items;
     }
 
     public function updateQuality(): void
