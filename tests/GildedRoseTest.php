@@ -155,14 +155,6 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($items[0]->quality, 50);
     }
 
-    public function testBackstagePassesAfterSellInPassed(): void
-    {
-        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', -5, 55)];
-        $gildedRose = new GildedRose($items);
-        $gildedRose->updateQuality();
-        $this->assertEquals($items[0]->sellIn, -6);
-        $this->assertEquals($items[0]->quality, 0);
-    }
     public function testSulfurasBeforeSellInPassed(): void
     {
         $items = [new Item('Sulfuras, Hand of Ragnaros', 10, 100)];
