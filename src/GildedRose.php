@@ -14,7 +14,7 @@ final class GildedRose
     // ) {
         public function __construct(array $items)
     {
-        //$this->items = $items;
+        $this->items = $items;
     }
     
  
