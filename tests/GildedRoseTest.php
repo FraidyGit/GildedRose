@@ -56,6 +56,13 @@ class GildedRoseTest extends TestCase
         $this->assertSame(9, $items[0]->sellIn);
         $this->assertSame(19, $items[0]->quality);
     }
-
+    public function testElixirOfTheMongooseBeforeSellInDate(): void
+    {
+        $items = [new Item('Elixir of the Mongoose', 10, 10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals($items[0]->sellIn, 9);
+        $this->assertEquals($items[0]->quality, 9);
+    }
 }
 
