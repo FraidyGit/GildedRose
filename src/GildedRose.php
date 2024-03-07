@@ -6,12 +6,8 @@ namespace GildedRose;
 
 final class GildedRose
 {
-    /**
-     * @param Item[] $items
-     */
-    // public function __construct(
-    //     private array $items
-    // ) {
+    private array $items;
+    
         public function __construct(array $items)
     {
         $this->items = $items;
