@@ -19,8 +19,10 @@ final class GildedRose
         foreach ($this->items as $item) {
             switch ($item->name) {
                 case 'Aged Brie':
+                    $this->updateAgedBrie($item);
+                    break;
                 case 'Backstage passes to a TAFKAL80ETC concert':
-                    $this->updateSpecialItem($item);
+                    $this->updateBackstagePasses($item);
                     break;
                 case 'Sulfuras, Hand of Ragnaros':
                     // Sulfuras quality and sellIn remain constant, so no action needed
@@ -44,16 +46,16 @@ final class GildedRose
     
     private function updateSpecialItem(Item $item): void
     {
-        if ($item->quality < 50) {
-            $item->quality++;
-            if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
-                if ($item->sellIn < 11) {
-                    $item->quality++;
-                }
-                if ($item->sellIn < 6) {
-                    $item->quality++;
-                }
-            }
+        switch ($item->name) {
+            case 'Aged Brie':
+                $this->updateAgedBrie($item);
+                break;
+            case 'Backstage passes to a TAFKAL80ETC concert':
+                $this->updateBackstagePasses($item);
+                break;
+            default:
+                $this->increaseQuality($item);
+                break;
         }
     }
     
@@ -65,6 +67,31 @@ final class GildedRose
             }
         }
     }
+    private function updateAgedBrie(Item $item): void
+{
+    $this->increaseQuality($item);
+}
+
+private function updateBackstagePasses(Item $item): void
+{
+    $this->increaseQuality($item);
+    $this->increaseQualityIfSellInLessThan($item, 11);
+    $this->increaseQualityIfSellInLessThan($item, 6);
+}
+
+private function increaseQuality(Item $item): void
+{
+    if ($item->quality < 50) {
+        $item->quality++;
+    }
+}
+
+private function increaseQualityIfSellInLessThan(Item $item, int $threshold): void
+{
+    if ($item->sellIn < $threshold && $item->quality < 50) {
+        $item->quality++;
+    }
+}
     
     private function updateExpiredItem(Item $item): void
     {
