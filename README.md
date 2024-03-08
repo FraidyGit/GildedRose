@@ -1,4 +1,4 @@
-Gilded Rose Refactoring Kata
+### Gilded Rose Refactoring Kata
 
 Welcome to the PHP version of the GildedRose Kata! In this exercise, you'll be working on improving and extending the functionality of a small inn called Gilded Rose, managed by the friendly innkeeper Allison.
 Overview
@@ -14,7 +14,7 @@ At Gilded Rose, all items have a SellIn value denoting the number of days left t
         "Backstage passes" increase in quality as the sell-by date approaches, with special rules for when the concert is near.
         The newly added "Conjured" items degrade in quality twice as fast as normal items.
 
-Changes and Improvements
+## Changes and Improvements
 
 In this version of the Kata, we've made several enhancements:
 
@@ -22,7 +22,7 @@ In this version of the Kata, we've made several enhancements:
     Refactoring of the existing codebase to enhance efficiency and readability. This includes consolidating duplicate code and breaking down complex functions into smaller, manageable ones.
     Introduction of the new "Conjured" item feature to the system.
 
-    Installation
+ ## Installation
 
 To get started, ensure you have the following installed on your system:
 
@@ -45,22 +45,6 @@ Install dependencies using Composer:
 
 composer install
 
-Testing:
-
-To run PHPUnit tests:
-
-composer tests
-
-To generate a coverage report:
-
-composer test-coverage
-
-Folders:
-src - contains the classes:
-Item.php
-GildedRose.php - this class is refactored, and includes the new feature
-AgedBrieItemUpdater BackstagePassesItemUpdater ConjredUpdater ItemUpdater SulfurasItemUpdater - this are classes for each Item
-IItemUpdater - a interface for the items
 ## Testing
 
 PHPUnit is configured for testing, a composer script has been provided. To run the unit tests, from the root of the PHP
