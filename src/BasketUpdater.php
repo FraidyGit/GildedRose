@@ -10,7 +10,7 @@ class BasketUpdater implements IItemUpdater
         if ($item->quality > 0) {
             $item->quality *= 2;
         } elseif ($item->quality < 0) {
-            $item->sellIn=-2;
+            $item->sellIn-=2;
         }
     }    
 }

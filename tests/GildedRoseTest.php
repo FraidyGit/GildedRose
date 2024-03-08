@@ -28,20 +28,6 @@ use PHPUnit\Framework\TestCase;
 
 class GildedRoseTest extends TestCase
 {
-    // public function testUpdateQualityForFooItem(): void
-    // {
-    //     // Arrange
-    //     $items = [new Item('foo', 0, 0)];
-    //     $gildedRose = new GildedRose($items);
-
-    //     // Act
-    //     $gildedRose->updateQuality();
-
-    //     // Assert
-    //     $this->assertSame('foo', $items[0]->name);
-    //     $this->assertSame(-1, $items[0]->sellIn);
-    //     $this->assertSame(0, $items[0]->quality);
-    // }
     public function testUpdateQualityForNormalItem(): void
     {
         $items = [new Item('Normal Item', 10, 20)];
@@ -195,6 +181,13 @@ class GildedRoseTest extends TestCase
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertEquals($items[0]->quality, -10);
+    }
+    public function testUpdateSellinQualityBelowZero(): void
+    {
+        $items = [new Item('Basket', 6, -10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals($items[0]->sellIn, 3);
     }
 }
 
