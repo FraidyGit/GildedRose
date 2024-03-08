@@ -1,8 +1,8 @@
 # Gilded Rose Refactoring Kata
 
-Welcome to the PHP version of the GildedRose Kata! In this exercise, you'll be working on improving and extending the functionality of a small inn called Gilded Rose, managed by the friendly innkeeper Allison.
-Overview
+Welcome to the PHP version of the GildedRose Kata! 
 
+ Gilded Rose is a small inn with a prime location in a prominent city ran by a friendly innkeeper named Allison. They buy and sell only the finest goods. Their goods are constantly degrading in Quality as they approach their sell by each passing date .
 At Gilded Rose, all items have a SellIn value denoting the number of days left to sell the item, and a Quality value indicating its value. Here's a brief overview of how the system operates:
 
 Each day, both the SellIn and Quality values of all items are updated.
