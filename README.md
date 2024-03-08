@@ -16,12 +16,11 @@ Some items have special behavior:
 
 ## Changes and Improvements
 
-In this version of the Kata, we've made several enhancements:
+In this version of the Kata, I made several enhancements:
 
 Implementation of comprehensive tests to ensure the reliability of the code.
 Refactoring of the existing codebase to enhance efficiency and readability. This includes consolidating duplicate code and breaking down complex functions into smaller, manageable ones.
-Introduction of the new "Conjured" item feature to the system.
-
+Adding the new 'Conjured' item feature to the system.
  ## Installation
 
 To get started, ensure you have the following installed on your system:
