@@ -18,9 +18,9 @@ Some items have special behavior:
 
 In this version of the Kata, we've made several enhancements:
 
-    Implementation of comprehensive tests to ensure the reliability of the code.
-    Refactoring of the existing codebase to enhance efficiency and readability. This includes consolidating duplicate code and breaking down complex functions into smaller, manageable ones.
-    Introduction of the new "Conjured" item feature to the system.
+Implementation of comprehensive tests to ensure the reliability of the code.
+Refactoring of the existing codebase to enhance efficiency and readability. This includes consolidating duplicate code and breaking down complex functions into smaller, manageable ones.
+Introduction of the new "Conjured" item feature to the system.
 
  ## Installation
 
@@ -31,19 +31,19 @@ To get started, ensure you have the following installed on your system:
 
 Clone the repository to your local machine:
 
-git clone git@github.com:kailahartman/GildedRose.git
+    git clone git@github.com:kailahartman/GildedRose.git
 
 or
 
-git clone https://github.com/kailahartman/GildedRose.git
+    git clone https://github.com/kailahartman/GildedRose.git
 
 Navigate to the project directory:
 
-cd GildedRose
+    cd GildedRose
 
 Install dependencies using Composer:
 
-composer install
+    composer install
 
 ## Testing
 
