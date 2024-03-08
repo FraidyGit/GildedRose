@@ -1,4 +1,4 @@
-GildedRose Kata - PHP Edition
+Gilded Rose Refactoring Kata
 
 Welcome to the PHP version of the GildedRose Kata! In this exercise, you'll be working on improving and extending the functionality of a small inn called Gilded Rose, managed by the friendly innkeeper Allison.
 Overview
@@ -61,7 +61,6 @@ Item.php
 GildedRose.php - this class is refactored, and includes the new feature
 AgedBrieItemUpdater BackstagePassesItemUpdater ConjredUpdater ItemUpdater SulfurasItemUpdater - this are classes for each Item
 IItemUpdater - a interface for the items
-----------------------------------
 ## Testing
 
 PHPUnit is configured for testing, a composer script has been provided. To run the unit tests, from the root of the PHP
