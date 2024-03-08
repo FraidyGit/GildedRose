@@ -59,10 +59,53 @@ Folders:
 src - contains the classes:
 Item.php
 GildedRose.php - this class is refactored, and includes the new feature
-in this class thers a class for each Item
+AgedBrieItemUpdater BackstagePassesItemUpdater ConjredUpdater ItemUpdater SulfurasItemUpdater - this are classes for each Item
+IItemUpdater - a interface for the items
+----------------------------------
+## Testing
 
-tests - contains the tests
+PHPUnit is configured for testing, a composer script has been provided. To run the unit tests, from the root of the PHP
+project run:
 
-GildedRoseTest.php - includes the tests
+```shell script
+composer tests
+```
 
-texttest_fixture.php  could be used by an ApprovalTests, or run from the command line
+A Windows a batch file has been created, like an alias on Linux/Mac (e.g. `alias pu="composer tests"`), the same
+PHPUnit `composer tests` can be run:
+
+```shell script
+pu.bat
+```
+
+### Tests with Coverage Report
+
+To run all test and generate a html coverage report run:
+
+```shell script
+composer test-coverage
+```
+
+The test-coverage report will be created in /builds, it is best viewed by opening /builds/**index.html** in your
+browser.
+
+The [XDEbug](https://xdebug.org/download) extension is required for generating the coverage report.
+
+## Code Standard
+
+Easy Coding Standard (ECS) is configured for style and code standards, **PSR-12** is used. The current code is not upto
+standard!
+
+### Check Code
+
+To check code, but not fix errors:
+
+```shell script
+composer check-cs
+``` 
+
+On Windows a batch file has been created, like an alias on Linux/Mac (e.g. `alias cc="composer check-cs"`), the same
+PHPUnit `composer check-cs` can be run:
+
+```shell script
+cc.bat
