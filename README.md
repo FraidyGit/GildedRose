@@ -1,4 +1,4 @@
-Gilded Rose Refactoring Kata
+##Gilded Rose Refactoring Kata
 
 Welcome to the PHP version of the GildedRose Kata! In this exercise, you'll be working on improving and extending the functionality of a small inn called Gilded Rose, managed by the friendly innkeeper Allison.
 Overview
