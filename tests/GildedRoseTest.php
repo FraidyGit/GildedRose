@@ -167,7 +167,7 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($items[0]->sellIn, -1);
         $this->assertEquals($items[0]->quality, 30);
     }
-    public function testConjuredBeforeSellInDate(): void
+    public function testConjuredBeforeSellInPassed(): void
     {
         $items = [new Item('Conjred Mana Cake', 10, 10)];
         $gildedRose = new GildedRose($items);
@@ -175,13 +175,13 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($items[0]->sellIn, 9);
         $this->assertEquals($items[0]->quality, 8);
     }
-    public function testConjuredSellInDate(): void
+    public function testConjuredSellInPassed(): void
     {
         $items = [new Item('Conjred Mana Cake', 0, 10)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertEquals($items[0]->sellIn, -1);
-        $this->assertEquals($items[0]->quality, 6);
+        $this->assertEquals($items[0]->quality, 5);
     }
 }
 
