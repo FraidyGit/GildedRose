@@ -7,6 +7,6 @@ class SulfurasItemUpdater implements IItemUpdater
 {
     public function update(Item $item): void
     {
-        // Sulfuras quality and sellIn remain constant, so no action needed
+        $item->sellIn++;
     }
 }

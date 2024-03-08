@@ -17,6 +17,8 @@ final class GildedRose
     public function updateQuality(): void
     {
         foreach ($this->items as $item) {
+            $item->sellIn--;
+
             switch ($item->name) {
                 case 'Aged Brie':
                      $itemUpdater = new AgedBrieItemUpdater();   
@@ -24,23 +26,17 @@ final class GildedRose
                 case 'Backstage passes to a TAFKAL80ETC concert':
                    $itemUpdater=new BackstagePassesItemUpdater();
                       break;
-                case 'Basket':
-                    $itemUpdater=new BasketUpdater();
+                case 'Conjred Mana Cake':
+                    $itemUpdater=new ConjredUpdater();
                     break;      
                 case 'Sulfuras, Hand of Ragnaros':
                      $itemUpdater = new SulfurasItemUpdater();
                      break;
-                    break;
                 default:
                     $itemUpdater = new ItemUpdater();
                     break;
             }
-            $itemUpdater->update($item);
-
-            // Decrease sellIn for all items except Sulfuras
-            if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                $item->sellIn--;
-            }
+            $itemUpdater->update($item);           
 
             // Adjust quality for expired items
             if ($item->sellIn < 0) {
