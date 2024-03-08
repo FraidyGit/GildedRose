@@ -181,6 +181,20 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($items[0]->sellIn, -1);
         $this->assertEquals($items[0]->quality, 30);
     }
- 
+    public function testUpdateDecreasesQualityByTwo(): void
+    {
+        $items = [new Item('Basket', 5, 10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals($items[0]->quality, 20);
+    }
+
+    public function testUpdateDoesNotDecreaseQualityBelowZero(): void
+    {
+        $items = [new Item('Basket', 5, -10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals($items[0]->quality, -10);
+    }
 }
 

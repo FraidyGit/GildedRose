@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 namespace GildedRose;
 
-class ItemUpdater
+class ItemUpdater implements IItemUpdater
 {
     public function update(Item $item): void
     {
-        if ($item->quality > 0) {
+        if ($item->quality > 0 ) {
             $item->quality--;
         }
     }

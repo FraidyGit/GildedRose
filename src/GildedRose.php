@@ -24,6 +24,9 @@ final class GildedRose
                 case 'Backstage passes to a TAFKAL80ETC concert':
                    $itemUpdater=new BackstagePassesItemUpdater();
                       break;
+                case 'Basket':
+                    $itemUpdater=new BasketUpdater();
+                    break;      
                 case 'Sulfuras, Hand of Ragnaros':
                      $itemUpdater = new SulfurasItemUpdater();
                      break;
@@ -46,23 +49,7 @@ final class GildedRose
         }
     }
 
-    private function updateSpecialItem(Item $item): void
-    {
-        switch ($item->name) {
-            case 'Aged Brie':
-                $this->increaseQuality($item);
-                break;
-            case 'Backstage passes to a TAFKAL80ETC concert':
-                $this->increaseQuality($item);
-                if ($item->sellIn < 11) {
-                    $this->increaseQuality($item);
-                }
-                if ($item->sellIn < 6) {
-                    $this->increaseQuality($item);
-                }
-                break;
-        }
-    }
+
 
     private function updateNormalItem(Item $item): void
     {
