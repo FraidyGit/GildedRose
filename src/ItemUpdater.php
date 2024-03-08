@@ -10,5 +10,9 @@ class ItemUpdater implements IItemUpdater
         if ($item->quality > 0 ) {
             $item->quality--;
         }
+        if ($item->sellIn < 0) {
+            $this->updateNormalItem($item);
+        }
+        
     }
 }

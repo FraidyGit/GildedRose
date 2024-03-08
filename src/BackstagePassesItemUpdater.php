@@ -13,6 +13,10 @@ class BackstagePassesItemUpdater implements IItemUpdater
         if ($item->sellIn < 6) {
             $this->increaseQuality($item);
         }
+        if ($item->sellIn < 0) {
+            $item->quality = 0;
+
+        }
     }
     private function increaseQuality(Item $item): void
     {
