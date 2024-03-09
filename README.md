@@ -28,9 +28,9 @@ Adding the new 'Conjured' item feature to the system.
     - `Item.php`: Represents an item with its properties   
     - `GildedRose.php`: Contains the main page for updating item qualities, from this page thers other updaiting functions thats called 
     - `AgedBrieItemUpdater, BackstagePassesItemUpdater, ConjredUpdater, IItemUpdater, SulfurasItemUpdater`: classes that I added, thay contain updating functions for different items (each item in a different class)
-    - `tests`: Contains PHPUnit tests
+- `tests`: Contains PHPUnit tests
         GildedRoseTest.php: Includes all the tests
-    - `Fixture`: Contains a script for running a fixture to test the application
+- `Fixture`: Contains a script for running a fixture to test the application
 
     
  
