@@ -21,6 +21,20 @@ In this version of the Kata, I made several enhancements:
 Implementation of comprehensive tests to ensure the reliability of the code.
 Refactoring of the existing codebase to enhance efficiency and readability. This includes consolidating duplicate code and breaking down complex functions into smaller, manageable ones.
 Adding the new 'Conjured' item feature to the system.
+
+## Folders
+
+   -  `src`: Contains the main application code:
+     - `Item.php`: Represents an item with its properties
+     - `GildedRose.php`: Contains the main page for updating item qualities, from this page thers other updaiting functions thats called 
+       - `AgedBrieItemUpdater, BackstagePassesItemUpdater, ConjredUpdater, IItemUpdater, SulfurasItemUpdater`: classes that I added, thay contain updating functions for different items (each item in a different class)
+    `tests`: Contains PHPUnit tests
+        GildedRoseTest.php: Includes all the tests
+    `Fixture`: Contains a script for running a fixture to test the application
+
+    
+ 
+
  ## Installation
 
 To get started, ensure you have the following installed on your system:
